@@ -3,10 +3,6 @@
   --board-size: calc(8 * var(--square-size));
   --disc-size: calc(0.775 * var(--square-size));
   --dot-size: calc(0.15 * var(--square-size));
-
-  @media (width < 500px) {
-    /* --square-size: calc(2.375 * var(--base-size)); */
-  }
 }
 
 [data-colors="default-colors"] {
@@ -103,7 +99,7 @@ main {
     inset-inline-start: 5%;
   }
 
-  svg {
+  & svg {
     width: 2rem;
   }
 }
@@ -168,7 +164,7 @@ main {
     background-color: var(--opaque-neutral-color-50);
   }
 
-  .icon {
+  & .icon {
     margin-left: auto;
     width: 1rem;
     height: 1rem;
@@ -253,12 +249,13 @@ main {
 
   /* overriding sound label */
   &[for="sounds"] {
-  .icon {
+  
+    & .icon {
     position: relative;
     outline: 0;
 
     /* absolute positioned to stacking on top of each other */
-    svg {
+    & svg {
       scale: 1.35;
       position: absolute;
       top: 50%;
@@ -307,7 +304,7 @@ main {
     }
   }
 
-  h4 {
+  & h4 {
     font-size: 0.95rem;
   }
 
@@ -330,11 +327,11 @@ main {
   position: relative;
   isolation: isolate;
 
-  h4 {
+  & h4 {
     padding: var(--space-4) 0 0 var(--space-4);
   }
 
-  p {
+  & p {
     font-size: 0.875rem;
   }
 
@@ -363,11 +360,11 @@ main {
       translate: 0 -50%;
       background-color: rgba(164 151 125 / 65%);
       border-radius: var(--rounded-full);
-      transition: translate var(--duration-2) ease-in;
+      transition: left var(--duration-1) ease-in;
     }
 
     &:checked::after {
-      left: calc(96% - 1.15rem);
+      left: calc(98% - 1.15rem);
       background-color: rgb(134 124 103 / 70%);
     }
   }
@@ -760,14 +757,14 @@ section {
     animation: animate-out var(--duration-2) ease-in forwards;
   }
 
-  .winner {
+  & .winner {
     padding: var(--space-2);
     text-align: center;
     font-size: 2rem;
     font-weight: 600;
   }
 
-  .final-result {
+  & .final-result {
     margin-top: -2rem;
     flex: 1 1;
     display: flex;
