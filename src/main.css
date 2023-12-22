@@ -1,0 +1,206 @@
+@layer reset, global;
+
+.games {
+  margin-inline: auto;
+  padding: 1rem;
+  width: min(100vw, 990px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+  grid-auto-rows: minmax(5rem, auto);
+  gap: 1rem;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: var(--outline-size-2) solid var(--neutral-color-800);
+
+  & a {
+    padding: 1rem;
+  }
+}
+
+html {
+  --base-size: 1rem;
+
+  --space-1: calc(0.25 * var(--base-size));
+  --space-2: calc(0.5 * var(--base-size));
+  --space-3: calc(0.75 * var(--base-size));
+  --space-4: calc(1 * var(--base-size));
+  --space-5: calc(1.25 * var(--base-size));
+  --space-6: calc(1.5 * var(--base-size));
+  --space-7: calc(1.75 * var(--base-size));
+  --space-8: calc(2 * var(--base-size));
+  --space-9: calc(2.5 * var(--base-size));
+  --space-10: calc(3 * var(--base-size));
+
+  --outline-size-1: 0.07515rem;
+  --outline-size-2: 0.15rem;
+  --rounded-full: 9999px;
+  --shadow-100: 0 0.15rem 1.15rem rgb(0 0 0 / 20%);
+  --shadow-200: 0 0.1rem 0.75rem rgb(0 0 0 / 50%);
+  --duration-1: 150ms;
+  --duration-2: 220ms;
+  --z-neg-10: -10;
+  --z-neg-5: -5;
+  --z-0: 0;
+  --z-5: 5;
+  --z-10: 10;
+  --z-20: 20;
+  --z-50: 50;
+  --z-100: 100;
+
+  --avatar-size: calc(3.5 * var(--base-size));
+
+  @media (width < 500px) {
+    --base-size: 0.95rem;
+  }
+}
+
+[data-theme="light"] {
+  --neutral-color-200: rgb(233 226 211);
+  --neutral-color-300: rgb(221 208 182);
+  --neutral-color-400: rgb(202 183 145);
+  --neutral-color-500: rgb(196 173 124);
+  --neutral-color-800: rgb(10 39 50);
+  --neutral-color-900: rgb(19 17 12);
+  --opaque-neutral-color-50: rgb(233 226 211 / 85%);
+  --opaque-neutral-color-100: rgb(233 226 211 / 75%);
+  --opaque-neutral-color-200: rgb(198 195 175 / 50%);
+  --opaque-neutral-color-300: rgba(221 208 182 / 67.5%);
+  --opaque-neutral-color-800: rgb(10 39 50 / 50%);
+}
+
+[data-theme="dark"] {
+  --neutral-color-200: rgb(31, 28, 20);
+  --neutral-color-300: rgb(10 39 50);
+  --neutral-color-400: rgb(202 183 145);
+  --neutral-color-500: rgb(196 173 124);
+  --neutral-color-800: rgb(221 208 182);
+  --neutral-color-900: rgb(233 226 211);
+  --opaque-neutral-color-50: rgba(21, 21, 20, 0.85);
+  --opaque-neutral-color-100: rgba(31, 30, 28, 0.75);
+  --opaque-neutral-color-200: rgba(79, 76, 67, 0.5);
+  --opaque-neutral-color-300: rgba(58, 55, 47, 0.675);
+  --opaque-neutral-color-800: rgb(10 39 50 / 50%);
+}
+
+
+@layer global {
+  html {
+    font-size: clamp(0.75rem, 55% + 0.75vw, 1.2rem);
+    font-family: Cambria, Cochin, Georgia, serif;
+  }
+
+  main {
+    height: 100%;
+    display: grid;
+    color: var(--neutral-color-800);
+    background-color: var(--neutral-color-200);
+    transition: 220ms ease-in;
+  }
+
+  svg {
+    width: 1rem;
+  }
+
+  .avatar {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@layer reset {
+  *,
+  *::after,
+  *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+  }
+
+  html {
+    min-height: 100%;
+    display: grid;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    box-sizing: border-box;
+    height: 100%;
+    line-height: 1.25;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+  }
+
+  i {
+    text-align: center;
+  }
+
+  ul,
+  ol {
+    list-style: none;
+  }
+
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  button {
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    text-align: center;
+    color: inherit;
+    appearance: button;
+    background-color: transparent;
+    background-image: none;
+    border: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+    object-fit: cover;
+  }
+
+  img,
+  svg,
+  canvas,
+  video,
+  audio,
+  iframe {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+}

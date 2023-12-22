@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reversi</title>
+    <link rel="shortcut icon" href="../../public/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+
+    <main data-game="reversi" data-theme="light" data-colors="default-colors">
+      
+      <div class="backdrop"></div>
+      <audio src="../../public/sounds/effect1.mp3" preload="auto"></audio>
+
+      <button class="menu-btn">
+        <i class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+          </svg>
+        </i>
+      </button>
+
+      <aside class="menu-container">
+        <ul class="menu">
+          <li class="menu-item">
+            <div class="setting">
+              <p>Settings</p>
+              <i class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </i>
+              <div class="setting-items">
+                <label class="setting-item" for="possible-moves">
+                  <p>Possible Moves</p>
+                  <input type="checkbox" id="possible-moves">
+                  <i class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" fill="currentColor">
+                      <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd" />
+                    </svg>
+                  </i>
+                </label>
+                <label class="setting-item" for="coords">
+                  <p>Coordinates</p>
+                  <input type="checkbox" id="coords" checked>
+                  <i class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" fill="currentColor">
+                      <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd" />
+                    </svg>
+                  </i>
+                </label>
+                <label class="setting-item" for="sounds">
+                  <p>Sound</p>
+                  <input type="checkbox" id="sounds">
+                  <i class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="unmute" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+                    </svg>
+              
+                    <svg xmlns="http://www.w3.org/2000/svg" class="mute" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-4.72a.75.75 0 011.28.531V19.94a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.506-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.395C2.806 8.757 3.63 8.25 4.51 8.25H6.75z" />
+                    </svg>
+                  </i>
+                </label>
+              </div>
+            </div>
+          </li>
+          <li class="menu-item">
+            <div class="themes">
+              <p>Display</p>
+              <i class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" fill="currentColor">
+                  <path d="M479.231-124.078q-73.462 0-138.145-27.716-64.683-27.715-113.13-76.259-48.447-48.543-76.162-113.322-27.716-64.779-27.716-138.633 0-74.838 27.982-139.071 27.983-64.232 77.654-113.076 49.671-48.844 116.594-76.305 66.923-27.462 142.265-27.462 71.485 0 134.571 24.673t110.377 67.317q47.291 42.644 74.846 99.922 27.555 57.279 27.555 122.971 0 82.478-56.961 144.931Q722-313.655 631.606-313.655h-64.875q-17.385 0-31.078 11.732-13.693 11.733-13.693 30.258 0 22.075 15 31.062 15 8.988 15 49.411 0 20.461-18.999 43.787-19 23.327-53.73 23.327ZM480-480Zm-213.617 23.576q19.317 0 33.466-14.109 14.15-14.11 14.15-33.427t-14.109-33.466q-14.11-14.15-33.427-14.15t-33.466 14.109q-14.15 14.11-14.15 33.427t14.109 33.466q14.11 14.15 33.427 14.15Zm119.192-142.384q19.317 0 33.467-14.11 14.15-14.11 14.15-33.426 0-19.317-14.11-33.467-14.11-14.15-33.426-14.15-19.317 0-33.467 14.11-14.15 14.109-14.15 33.426t14.11 33.467q14.109 14.15 33.426 14.15Zm189.577 0q19.317 0 33.467-14.11 14.15-14.11 14.15-33.426 0-19.317-14.11-33.467-14.11-14.15-33.426-14.15-19.317 0-33.467 14.11-14.15 14.109-14.15 33.426t14.11 33.467q14.109 14.15 33.426 14.15Zm118.385 142.384q19.317 0 33.466-14.109 14.15-14.11 14.15-33.427t-14.109-33.466q-14.11-14.15-33.427-14.15t-33.466 14.109q-14.15 14.11-14.15 33.427t14.109 33.466q14.11 14.15 33.427 14.15ZM479.314-172.038q11.645 0 18.165-8.308Q504-188.654 504-196.038q0-16-14.596-26.866-14.596-10.865-14.596-47.288 0-38.269 25.881-64.846 25.881-26.577 63.571-26.577h67.317q70.616 0 113.5-48.328 42.885-48.327 42.885-111.134 0-113.462-88.02-190.173-88.019-76.712-211.239-76.712-133.165 0-224.915 89.827-91.75 89.826-91.75 218.135 0 128.077 89.943 218.019 89.942 89.943 217.333 89.943Z"/>
+                </svg>
+              </i>
+              <div class="themes-container">
+                <div class="theme">
+                  <h4>Theme</h4>
+                  <label for="theme-mode">
+                    <p>Dark Mode</p>
+                    <input type="checkbox" id="theme-mode">
+                  </label>
+                </div>
+                <div class="colors">
+                  <h4>Colors</h4>
+                  <div class="labels">
+                    <label for="default-colors">
+                      <div class="temp-default">
+                        <div class="square">
+                          <div class="disc"></div>
+                        </div>
+                      </div>
+                      <input type="radio" name="radio" id="default-colors">
+                      <p>Default</p>
+                    </label>
+                    <label for="plumy-colors">
+                      <div class="temp-plumy">
+                        <div class="square">
+                          <div class="disc"></div>
+                        </div>
+                      </div>
+                      <input type="radio" name="radio" id="plumy-colors">
+                      <p>Plumish</p>
+                    </label>
+                    <label for="dark-teal">
+                      <div class="temp-teal">
+                        <div class="square">
+                          <div class="disc"></div>
+                        </div>
+                      </div>
+                      <input type="radio" name="radio" id="dark-teal">
+                      <p>Dark Teal</p>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="menu-item">
+            <div class="rules">
+              <p>Rules</p>
+              <i class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+                </svg>
+              </i>
+              <div class="explanation">
+                <div>
+                  <h2>Overwiew</h2>
+                  <p>
+                    Reversi is a strategic board game played between two players on an 8x8 checkerboard. The game starts with 4 discs - two black and two white - placed in the center squares. Players take turns placing discs of their color on the board with the goal of surrounding their opponent's discs between their own.
+                  </p>
+                </div>
+                <div>
+                  <h2>Rules</h2>
+                  <p>
+                    To make a valid move, you must place your disc so that it trap or "sandwiches" at least one of the opponent's discs between your own discs in a straight horizontal, vertical, or diagonal line. If you sandwich an opponent's disc(s), those discs get flipped over to become your color. The player who ends up with the most discs of their color on the board at the end wins.
+                  </p>
+                  <p>
+                    You cannot make a move where your disc does not surround at least one of the opponent's discs. If a player has no valid moves, the opponent takes another turn. The game ends when both players have no more valid moves or when the board is completely filled up. The player who has the most discs of their color on the board is the winner.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="menu-item">
+            <a href="#" class="about">
+              <p>Report Issues</p>
+              <i class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                </svg>
+              </i>
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <section class="game-info">
+        <figure class="player player-1" data-color="blk">
+          <img src="../../public/images/avatars/guyg.png" id="player1-avatar" class="avatar" alt="player-1's avatar" />
+          <div class="name">Player 1</div>
+        </figure>
+        <div class="result">
+          <div>
+            <div class="disc blk"></div>
+            <span class="disc-counts black-discs">2</span>
+          </div>
+          <span class="vs">Vs</span>
+          <div>
+            <span class="disc-counts white-discs">2</span>
+            <div class="disc wht"></div>
+          </div>
+        </div>
+        <figure class="player player-2" data-color="wht">
+          <img src="../../public/images/avatars/vangogh.png" id="player2-avatar" class="avatar" alt="player-2's avatar" />
+          <div class="name">Player 2</div>
+        </figure>
+      </section>
+
+      <section class="game-board">
+        <div class="board-wrap">
+          <div class="board">
+            <div class="top-coords">
+              <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+            </div>
+            <div class="left-coords">
+              <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span>
+            </div>
+          </div>
+        </div>
+        <div class="cta">
+          <div class="turn">Black's Turn</div>
+          <div class="offers">
+            <button class="reset-btn">Reset Game</button>
+            <div>
+              <button class="draw-btn">Offer Draw</button>
+              <button class="resign-btn">Resign Game</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="modal">
+        <p class="winner">Player 1 Won!</p>
+        <div class="final-result">
+          <figure class="player player-1">
+            <img id="m-player1-avatar" class="avatar" />
+            <div class="total-wins">
+              <!-- <span>Total Wins:</span><span>12</span> -->
+            </div>
+          </figure>
+          <span class="vs">Vs</span>
+          <figure class="player player-2">
+            <img id="m-player2-avatar" class="avatar" />
+            <div class="total-wins">
+              <!-- <span>Total Wins:</span><span>12</span> -->
+            </div>
+          </figure>
+        </div>
+        <div class="btns">
+          <button class="rematch-btn">Rematch</button>
+          <button class="ok-btn">Ok!</button>
+        </div>
+      </div>
+
+    </main>
+
+  </body>
+</html>
