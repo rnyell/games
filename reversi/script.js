@@ -45,7 +45,7 @@ const SIZE = 8
 const positions = []
 let squareElements = new Map()
 let isWhiteTurn = false
-// clockwise dir; dx, dy, dID
+// clockwise dir; [dx, dy, dn]
 const directions = [
   [-1, 0, -8],
   [-1, 1, -7],
@@ -57,14 +57,20 @@ const directions = [
   [-1, -1, -9],
 ]
 
+// TODO
+// const doesUserPreferDarkMode = matchMedia("(prefers-color-scheme: dark)").matches
+
+let userPreferences = { }
+
 const defaultPreferences = {
-  isPossibleMovesEnabled: possibleMovesCheckbox.checked,
-  isSoundEffectEnabled: soundEffectCheckbox.checked,
+  isPossibleMovesEnabled: true,
+  isSoundEffectEnabled: true,
   userSelectedTheme: "light",
   userSelectedColors: "default-colors"
+  // userSelectedTheme: doesUserPreferDarkMode ? "dark" : "light",
+  // userSelectedColors: doesUserPreferDarkMode ? "dark-teal" : "default-colors"
 }
 
-let userPreferences = {}
 const userStorage = JSON.parse(
   localStorage.getItem("userPreferences")
 )
@@ -396,7 +402,6 @@ function helperDotsHandler() {
   const color = isWhiteTurn ? "wht" : "blk"
   userPreferences.isPossibleMovesEnabled = possibleMovesCheckbox.checked
   localStorage.setItem("userPreferences", JSON.stringify(userPreferences))
-  log(userPreferences.isPossibleMovesEnabled)
 
   if (userPreferences.isPossibleMovesEnabled) {
     showPossibleMoves(color)
@@ -515,16 +520,8 @@ function displayRules() {
   setTimeout(() => {
     explanation.classList.add("animate-in")
   }, 0)
-  //! anime(explanation)
   backdrop.classList.add("blured")
 }
-
-//! function anime(el) {
-//   el.classList.add("display")
-//   setTimeout(() => {
-//     el.classList.add("animate-in")
-//   }, 0)
-// }
 
 function closeRules() {
   explanation.classList.remove("animate-in")
@@ -591,16 +588,25 @@ function rematch() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  initBoard()
+  
+  // if (!userStorage && doesUserPreferDarkMode) {
+  //   main.dataset.theme = "dark"
+  //   main.dataset.colors = "dark-teal"
+  //   themeCheckbox.checked = true
+  // }
 
   if (userStorage) {
     if (userStorage.isPossibleMovesEnabled) possibleMovesCheckbox.setAttribute('checked', true)
     if (userStorage.isSoundEffectEnabled) soundEffectCheckbox.setAttribute('checked', true)
     if (userStorage.userSelectedTheme === "dark") themeCheckbox.checked = true
-
     main.dataset.theme = userStorage.userSelectedTheme
     main.dataset.colors = userStorage.userSelectedColors
+  } else {
+    possibleMovesCheckbox.setAttribute('checked', true)
+    soundEffectCheckbox.setAttribute('checked', true)
   }
+
+  initBoard()
 })
 
 board.addEventListener("click", clickHandler)
@@ -647,9 +653,3 @@ document.addEventListener('keydown', ({key}) => {
     }, 200)
   }
 })
-
-// addEventListener('click', (e) => {
-//   log(e.target)
-// })
-
-//! put animate-in & display adding classes into a function

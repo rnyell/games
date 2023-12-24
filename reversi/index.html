@@ -25,9 +25,9 @@
       </button>
 
       <aside class="menu-container">
-        <ul class="menu">
-          <li class="menu-item">
-            <div class="setting">
+        <ul class="menu" data-menu>
+          <li class="menu-item" data-menu-item>
+            <div class="setting" data-menu-item-title>
               <p>Settings</p>
               <i class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -35,8 +35,8 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </i>
-              <div class="setting-items">
-                <label class="setting-item" for="possible-moves">
+              <div class="setting-items" data-submenu>
+                <label class="setting-item" for="possible-moves" data-submenu-item>
                   <p>Possible Moves</p>
                   <input type="checkbox" id="possible-moves">
                   <i class="icon">
@@ -45,7 +45,7 @@
                     </svg>
                   </i>
                 </label>
-                <label class="setting-item" for="coords">
+                <label class="setting-item" for="coords" data-submenu-item>
                   <p>Coordinates</p>
                   <input type="checkbox" id="coords" checked>
                   <i class="icon">
@@ -54,7 +54,7 @@
                     </svg>
                   </i>
                 </label>
-                <label class="setting-item" for="sounds">
+                <label class="setting-item" for="sounds" data-submenu-item>
                   <p>Sound</p>
                   <input type="checkbox" id="sounds">
                   <i class="icon">
@@ -70,23 +70,23 @@
               </div>
             </div>
           </li>
-          <li class="menu-item">
-            <div class="themes">
+          <li class="menu-item" data-menu-item>
+            <div class="themes" data-menu-item-title>
               <p>Display</p>
               <i class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" fill="currentColor">
                   <path d="M479.231-124.078q-73.462 0-138.145-27.716-64.683-27.715-113.13-76.259-48.447-48.543-76.162-113.322-27.716-64.779-27.716-138.633 0-74.838 27.982-139.071 27.983-64.232 77.654-113.076 49.671-48.844 116.594-76.305 66.923-27.462 142.265-27.462 71.485 0 134.571 24.673t110.377 67.317q47.291 42.644 74.846 99.922 27.555 57.279 27.555 122.971 0 82.478-56.961 144.931Q722-313.655 631.606-313.655h-64.875q-17.385 0-31.078 11.732-13.693 11.733-13.693 30.258 0 22.075 15 31.062 15 8.988 15 49.411 0 20.461-18.999 43.787-19 23.327-53.73 23.327ZM480-480Zm-213.617 23.576q19.317 0 33.466-14.109 14.15-14.11 14.15-33.427t-14.109-33.466q-14.11-14.15-33.427-14.15t-33.466 14.109q-14.15 14.11-14.15 33.427t14.109 33.466q14.11 14.15 33.427 14.15Zm119.192-142.384q19.317 0 33.467-14.11 14.15-14.11 14.15-33.426 0-19.317-14.11-33.467-14.11-14.15-33.426-14.15-19.317 0-33.467 14.11-14.15 14.109-14.15 33.426t14.11 33.467q14.109 14.15 33.426 14.15Zm189.577 0q19.317 0 33.467-14.11 14.15-14.11 14.15-33.426 0-19.317-14.11-33.467-14.11-14.15-33.426-14.15-19.317 0-33.467 14.11-14.15 14.109-14.15 33.426t14.11 33.467q14.109 14.15 33.426 14.15Zm118.385 142.384q19.317 0 33.466-14.109 14.15-14.11 14.15-33.427t-14.109-33.466q-14.11-14.15-33.427-14.15t-33.466 14.109q-14.15 14.11-14.15 33.427t14.109 33.466q14.11 14.15 33.427 14.15ZM479.314-172.038q11.645 0 18.165-8.308Q504-188.654 504-196.038q0-16-14.596-26.866-14.596-10.865-14.596-47.288 0-38.269 25.881-64.846 25.881-26.577 63.571-26.577h67.317q70.616 0 113.5-48.328 42.885-48.327 42.885-111.134 0-113.462-88.02-190.173-88.019-76.712-211.239-76.712-133.165 0-224.915 89.827-91.75 89.826-91.75 218.135 0 128.077 89.943 218.019 89.942 89.943 217.333 89.943Z"/>
                 </svg>
               </i>
-              <div class="themes-container">
-                <div class="theme">
+              <div class="themes-container" data-submenu>
+                <div class="theme" data-submenu-item>
                   <h4>Theme</h4>
                   <label for="theme-mode">
                     <p>Dark Mode</p>
                     <input type="checkbox" id="theme-mode">
                   </label>
                 </div>
-                <div class="colors">
+                <div class="colors" data-submenu-item>
                   <h4>Colors</h4>
                   <div class="labels">
                     <label for="default-colors">
@@ -121,35 +121,33 @@
               </div>
             </div>
           </li>
-          <li class="menu-item">
-            <div class="rules">
+          <li class="menu-item" data-menu-item>
+            <div class="rules" data-menu-item-title>
               <p>Rules</p>
               <i class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
                 </svg>
               </i>
-              <div class="explanation">
-                <div>
-                  <h2>Overwiew</h2>
-                  <p>
-                    Reversi is a strategic board game played between two players on an 8x8 checkerboard. The game starts with 4 discs - two black and two white - placed in the center squares. Players take turns placing discs of their color on the board with the goal of surrounding their opponent's discs between their own.
-                  </p>
-                </div>
-                <div>
-                  <h2>Rules</h2>
-                  <p>
-                    To make a valid move, you must place your disc so that it trap or "sandwiches" at least one of the opponent's discs between your own discs in a straight horizontal, vertical, or diagonal line. If you sandwich an opponent's disc(s), those discs get flipped over to become your color. The player who ends up with the most discs of their color on the board at the end wins.
-                  </p>
-                  <p>
-                    You cannot make a move where your disc does not surround at least one of the opponent's discs. If a player has no valid moves, the opponent takes another turn. The game ends when both players have no more valid moves or when the board is completely filled up. The player who has the most discs of their color on the board is the winner.
-                  </p>
-                </div>
+              <div class="explanation" data-submenu>
+                <article>
+                    <h2>Overwiew</h2>
+                    <p>
+                      Reversi is a strategic board game played between two players on an 8x8 checkerboard. The game starts with 4 discs - two black and two white - placed in the center squares. Players take turns placing discs of their color on the board with the goal of surrounding their opponent's discs between their own.
+                    </p>
+                    <h2>Rules</h2>
+                    <p>
+                      To make a valid move, you must place your disc so that it trap or "sandwiches" at least one of the opponent's discs between your own discs in a straight horizontal, vertical, or diagonal line. If you sandwich an opponent's disc(s), those discs get flipped over to become your color. The player who ends up with the most discs of their color on the board at the end wins.
+                    </p>
+                    <p>
+                      You cannot make a move where your disc does not surround at least one of the opponent's discs. If a player has no valid moves, the opponent takes another turn. The game ends when both players have no more valid moves or when the board is completely filled up. The player who has the most discs of their color on the board is the winner.
+                    </p>
+                </article>
               </div>
             </div>
           </li>
-          <li class="menu-item">
-            <a href="#" class="about">
+          <li class="menu-item" data-menu-item>
+            <a href="#" class="about" data-menu-item-title>
               <p>Report Issues</p>
               <i class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
