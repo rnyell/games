@@ -148,12 +148,6 @@ html {
     list-style: none;
   }
 
-  table {
-    text-indent: 0;
-    border-color: inherit;
-    border-collapse: collapse;
-  }
-
   input,
   optgroup,
   select,
@@ -163,10 +157,6 @@ html {
     font-weight: inherit;
     line-height: inherit;
     color: inherit;
-  }
-
-  textarea {
-    resize: vertical;
   }
 
   button {
@@ -191,16 +181,8 @@ html {
 
   img,
   svg,
-  canvas,
-  video,
-  audio,
-  iframe {
+  audio {
     display: inline-block;
     vertical-align: bottom;
-  }
-
-  video {
-    max-width: 100%;
-    height: auto;
   }
 }

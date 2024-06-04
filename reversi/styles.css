@@ -311,19 +311,18 @@ main {
     }
   }
 
-  & [type="checkbox"]:not(:checked) + i svg.unmute {
+    & [type="checkbox"]:not(:checked) + i svg.unmute {
       opacity: 0;
-  }
+    }
 
-  & [type="checkbox"]:not(:checked) + i svg.mute {
-    opacity: 1;
-  }
+    & [type="checkbox"]:not(:checked) + i svg.mute {
+      opacity: 1;
+    }
 
-  & [type="checkbox"]:checked + i svg.mute {
+    & [type="checkbox"]:checked + i svg.mute {
       opacity: 0;
     }
   }
-
 }
 
 .menu .themes {
