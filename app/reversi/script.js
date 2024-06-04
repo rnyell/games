@@ -7,7 +7,7 @@ import {
   getDOMElementById,
   queryDOMElement,
   addEventListener,
-} from "../src/lib/dom.js";
+} from "../lib/dom.js";
 
 const main = queryDOMElement("main");
 const audio = queryDOMElement("audio");
